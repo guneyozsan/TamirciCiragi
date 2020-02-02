@@ -8,7 +8,7 @@ public class Boss : MonoBehaviour
     [SerializeField] private float angerIncreaseRatePerSecond;
     [SerializeField] private float angerDecreaseAmount;
 
-    private float anger;
+    [SerializeField] private float anger;
 
     private void Start() =>
         anger = 0;
@@ -19,12 +19,18 @@ public class Boss : MonoBehaviour
 
         if (anger > maxAnger)
         {
-            BossIsAngry?.Invoke();
+            OnBossIsAngry();
         }
     }
 
     public event Action BossIsAngry;
 
     public void OnCarRepaired() =>
-        anger -= angerDecreaseAmount;
+        anger = Mathf.Max(0f, anger - angerDecreaseAmount);
+
+    public void OnBossIsAngry()
+    {
+        Destroy(gameObject);
+        BossIsAngry?.Invoke();
+    }
 }

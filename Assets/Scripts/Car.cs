@@ -14,7 +14,11 @@ public class Car : MonoBehaviour
     private void Awake()
     {
         boss = FindObjectOfType<Boss>();
-        HealthUpdated += boss.OnCarRepaired;
+
+        if (boss != null)
+        {
+            HealthUpdated += boss.OnCarRepaired;
+        }
     }
 
     private void Start() =>
@@ -23,8 +27,13 @@ public class Car : MonoBehaviour
     private void OnMouseUp() =>
         Health += healAmount;
 
-    private void OnDestroy() =>
-        HealthUpdated -= boss.OnCarRepaired;
+    private void OnDestroy()
+    {
+        if (boss != null)
+        {
+            HealthUpdated -= boss.OnCarRepaired;
+        }
+    }
 
     private int Health
     {
