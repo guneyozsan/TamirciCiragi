@@ -36,7 +36,7 @@ public class PlayerControls : MonoBehaviour
         }
     }
 
-    private void OnCollisionEnter2D(Collision2D collision)
+    private void OnCollisionEnter2D()
     {
         playerRigidbody.velocity = Vector2.zero;
     }

@@ -16,6 +16,11 @@ public class CarParker : MonoBehaviour
         float angle = transform.localEulerAngles.z;
         carRigidbody.velocity = new Vector2(
             -1f * Mathf.Sin(angle * Mathf.PI / 180) * initialVelocity,
-            Mathf.Cos(angle) * initialVelocity);
+            Mathf.Abs(Mathf.Cos(angle * Mathf.PI / 180) * initialVelocity));
+    }
+
+    private void OnCollisionEnter2D()
+    {
+        carRigidbody.velocity = Vector2.zero;
     }
 }

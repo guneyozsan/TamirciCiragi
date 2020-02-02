@@ -12,6 +12,8 @@ public class Car : MonoBehaviour
     private int health;
 
     private Boss boss;
+    private bool collidePlayer;
+    private bool interactPlayer;
 
     private void Awake()
     {
@@ -26,8 +28,37 @@ public class Car : MonoBehaviour
     private void Start() =>
         Health = Random.Range(0, maxHealth);
 
-    private void OnMouseUp() =>
+    private void OnMouseUpAsButton()
+    {
+        interactPlayer = true;
+        OnInteraction();
+    }
+
+    private void OnCollisionStay2D(Collision2D collision)
+    {
+        if (collision.collider.transform.CompareTag("Player"))
+        {
+            collidePlayer = true;
+            OnInteraction();
+        }
+        else
+        {
+            collidePlayer = false;
+        }
+    }
+
+    private void OnInteraction()
+    {
+        if (!collidePlayer || !interactPlayer)
+        {
+            return;
+        }
+
         Health += healAmount;
+
+        interactPlayer = false;
+        collidePlayer = false;
+    }
 
     private void OnDestroy()
     {

@@ -5,6 +5,8 @@ public class Girl : MonoBehaviour
     private const int maxLove = 100;
 
     [SerializeField] private float loveIncreaseAmount;
+    private bool interactPlayer;
+    private bool collidePlayer;
     [SerializeField] private float loveDecreaseRate;
     [SerializeField] private ProgressBar progressBar;
 
@@ -21,11 +23,38 @@ public class Girl : MonoBehaviour
         loveIncreaseAmount = deltaLoveRatio * (maxLove - Love);
     }
 
-    private void OnMouseUp()
+    private void OnMouseUpAsButton()
     {
+        interactPlayer = true;
+        OnInteraction();
+    }
+
+    private void OnCollisionStay2D(Collision2D collision)
+    {
+        if (collision.collider.transform.CompareTag("Player"))
+        {
+            collidePlayer = true;
+            OnInteraction();
+        }
+        else
+        {
+            collidePlayer = false;
+        }
+    }
+
+    private void OnInteraction()
+    {
+        if (!collidePlayer || !interactPlayer)
+        {
+            return;
+        }
+
         float deltaLoveRatio = loveIncreaseAmount / (maxLove - Love);
         Love += loveIncreaseAmount;
         loveIncreaseAmount = deltaLoveRatio * (maxLove - Love);
+
+        interactPlayer = false;
+        collidePlayer = false;
     }
 
     public float Love

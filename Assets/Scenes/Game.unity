@@ -520,8 +520,8 @@ MonoBehaviour:
   maxAreaX: 4
   minAreaY: -8
   maxAreaY: -8
-  minRotation: -16
-  maxRotation: 16
+  minRotation: -10
+  maxRotation: 10
 --- !u!1001 &2044238762
 PrefabInstance:
   m_ObjectHideFlags: 0

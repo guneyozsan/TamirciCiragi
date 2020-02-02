@@ -110,7 +110,6 @@ public class ProgressBarCircle : MonoBehaviour {
             if (Alert >= barValue && Time.time > nextPlay)
             {
                 nextPlay = Time.time + RepearRate;
-                audiosource.PlayOneShot(sound);
             }
         }
     }
