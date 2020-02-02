@@ -1,4 +1,5 @@
-﻿using UnityEngine;
+﻿using System;
+using UnityEngine;
 using Random = UnityEngine.Random;
 
 public class Car : MonoBehaviour
@@ -8,9 +9,23 @@ public class Car : MonoBehaviour
     [SerializeField] private int healAmount;
     [SerializeField] private int health;
 
+    private Boss boss;
+
+    private void Awake()
+    {
+        boss = FindObjectOfType<Boss>();
+        HealthUpdated += boss.OnCarRepaired;
+    }
+
     private void Start() =>
         Health = Random.Range(0, maxHealth);
-    
+
+    private void OnMouseUp() =>
+        Health += healAmount;
+
+    private void OnDestroy() =>
+        HealthUpdated -= boss.OnCarRepaired;
+
     private int Health
     {
         get
@@ -25,11 +40,12 @@ public class Car : MonoBehaviour
         }
     }
 
-    private void OnMouseUp() =>
-        Health += healAmount;
+    public event Action HealthUpdated;
 
     private void OnHealthUpdated()
     {
+        HealthUpdated?.Invoke();
+
         if (Health < maxHealth)
         {
             return;
