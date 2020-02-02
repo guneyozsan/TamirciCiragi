@@ -6,10 +6,8 @@ public class CarParker : MonoBehaviour
 
     private Rigidbody2D carRigidbody;
 
-    private void Awake()
-    {
+    private void Awake() =>
         carRigidbody = GetComponent<Rigidbody2D>();
-    }
 
     private void Start()
     {
@@ -19,8 +17,6 @@ public class CarParker : MonoBehaviour
             Mathf.Abs(Mathf.Cos(angle * Mathf.PI / 180) * initialVelocity));
     }
 
-    private void OnCollisionEnter2D()
-    {
+    private void OnCollisionEnter2D() =>
         carRigidbody.velocity = Vector2.zero;
-    }
 }
