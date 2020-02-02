@@ -1,6 +1,7 @@
-﻿using UnityEngine;
+﻿using System;
+using UnityEngine;
 
-public class Girl : MonoBehaviour
+public class Girl : MonoBehaviour, IProgressUpdated
 {
     private const int maxLove = 100;
 
@@ -57,6 +58,8 @@ public class Girl : MonoBehaviour
         collidePlayer = false;
     }
 
+    public event Action<float> ProgressUpdated;
+
     public float Love
     {
         get { return love; }
@@ -67,6 +70,9 @@ public class Girl : MonoBehaviour
         }
     }
 
-    private void OnLoveChanged() =>
+    private void OnLoveChanged()
+    {
         progressBar.BarValue = Love;
+        ProgressUpdated?.Invoke(Love);
+    }
 }

@@ -202,6 +202,28 @@ Transform:
   m_Father: {fileID: 0}
   m_RootOrder: 1
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!1 &215367178 stripped
+GameObject:
+  m_CorrespondingSourceObject: {fileID: 2472357030038560203, guid: 714179eef0cca4e4799a0df5440c223b,
+    type: 3}
+  m_PrefabInstance: {fileID: 2472357031337496562}
+  m_PrefabAsset: {fileID: 0}
+--- !u!114 &215367179
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 215367178}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 05c862c2c32a55441aa747679ff5aba9, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  sprites:
+  - {fileID: 21300000, guid: efc0dd96ea53c14498bc61a962e89fe4, type: 3}
+  - {fileID: 21300000, guid: d3f3157ee5142ad4a9bad6f0e40a8635, type: 3}
+  - {fileID: 21300000, guid: 19d669affd72160409c7bd1ac462b7d5, type: 3}
 --- !u!1 &265623645
 GameObject:
   m_ObjectHideFlags: 0
@@ -676,6 +698,29 @@ Transform:
   m_Father: {fileID: 0}
   m_RootOrder: 7
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!1 &1075731628 stripped
+GameObject:
+  m_CorrespondingSourceObject: {fileID: 6061974805356971549, guid: 2ec22ef874d762a41a1ae69b72443863,
+    type: 3}
+  m_PrefabInstance: {fileID: 8249717246392545868}
+  m_PrefabAsset: {fileID: 0}
+--- !u!114 &1075731629
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1075731628}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 29678477fdc633840876043803dc5ef9, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  sprites:
+  - {fileID: 21300000, guid: f154c15709ef9424680e70685693ed42, type: 3}
+  - {fileID: 21300000, guid: b706263bca7bf8547a4b8ead327604ba, type: 3}
+  - {fileID: 21300000, guid: 131bc2c29e75a104aad595359c9ee893, type: 3}
+  - {fileID: 21300000, guid: 131bc2c29e75a104aad595359c9ee893, type: 3}
 --- !u!1 &1098384454
 GameObject:
   m_ObjectHideFlags: 0
@@ -1588,6 +1633,27 @@ PrefabInstance:
   m_Modification:
     m_TransformParent: {fileID: 0}
     m_Modifications:
+    - target: {fileID: 881580127124055168, guid: 2ec22ef874d762a41a1ae69b72443863,
+        type: 3}
+      propertyPath: m_Sprite
+      value: 
+      objectReference: {fileID: 21300000, guid: f154c15709ef9424680e70685693ed42,
+        type: 3}
+    - target: {fileID: 881580127124055168, guid: 2ec22ef874d762a41a1ae69b72443863,
+        type: 3}
+      propertyPath: m_Size.x
+      value: 1.73
+      objectReference: {fileID: 0}
+    - target: {fileID: 881580127124055168, guid: 2ec22ef874d762a41a1ae69b72443863,
+        type: 3}
+      propertyPath: m_Size.y
+      value: 3.01
+      objectReference: {fileID: 0}
+    - target: {fileID: 881580127124055168, guid: 2ec22ef874d762a41a1ae69b72443863,
+        type: 3}
+      propertyPath: m_WasSpriteAssigned
+      value: 1
+      objectReference: {fileID: 0}
     - target: {fileID: 1140385806568147234, guid: 2ec22ef874d762a41a1ae69b72443863,
         type: 3}
       propertyPath: m_LocalPosition.x

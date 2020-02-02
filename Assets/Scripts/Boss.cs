@@ -1,7 +1,7 @@
 ﻿using System;
 using UnityEngine;
 
-public class Boss : MonoBehaviour
+public class Boss : MonoBehaviour, IProgressUpdated
 {
     private const int maxAnger = 100;
 
@@ -25,7 +25,7 @@ public class Boss : MonoBehaviour
     }
 
     public event Action IsAngry;
-    public event Action<float> AngerUpdated;
+    public event Action<float> ProgressUpdated;
 
     public float Anger
     {
@@ -43,6 +43,9 @@ public class Boss : MonoBehaviour
     public void OnBossIsAngry() =>
         IsAngry?.Invoke();
 
-    private void OnAngerUpdated() =>
-        progressBar.BarValue = anger;
+    private void OnAngerUpdated()
+    {
+        progressBar.BarValue = Anger;
+        ProgressUpdated?.Invoke(Anger);
+    }
 }

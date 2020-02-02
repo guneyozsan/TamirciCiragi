@@ -8,10 +8,8 @@ public class GameOverDialog : MonoBehaviour
     [SerializeField] private Vector2 dialogPosition;
     private GameObject gameOverDialog;
 
-    private void Awake()
-    {
+    private void Awake() =>
         boss.IsAngry += Boss_IsAngry;
-    }
 
     private void Boss_IsAngry()
     {
