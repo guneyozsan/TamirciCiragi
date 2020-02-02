@@ -94,6 +94,6 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 2a6f5c6d0b9668b4499f44a4b77ba03c, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  angerIncreaseRatePerSecond: 5
-  angerDecreaseAmount: 3
-  anger: 0
+  angerIncreaseRatePerSecond: 6
+  angerDecreaseAmount: 4
+  progressBar: {fileID: 0}
