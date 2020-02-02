@@ -13,7 +13,7 @@ GameObject:
   - component: {fileID: 5125724141091179958}
   - component: {fileID: 6333884083861492126}
   m_Layer: 0
-  m_Name: "G\u0130rl"
+  m_Name: Girl
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
