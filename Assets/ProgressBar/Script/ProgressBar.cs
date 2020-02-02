@@ -109,7 +109,6 @@ public class ProgressBar : MonoBehaviour
             if (Alert >= barValue && Time.time > nextPlay)
             {
                 nextPlay = Time.time + RepeatRate;
-                audiosource.PlayOneShot(sound);
             }
         }
     }
