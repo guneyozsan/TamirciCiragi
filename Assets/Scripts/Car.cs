@@ -83,6 +83,7 @@ public class Car : MonoBehaviour
     }
 
     public event Action HealthUpdated;
+    public event Action Repaired;
 
     private void OnHealthUpdated()
     {
@@ -98,5 +99,5 @@ public class Car : MonoBehaviour
     }
 
     private void OnCarRepaired() =>
-        Destroy(gameObject);
+        Repaired?.Invoke();
 }
