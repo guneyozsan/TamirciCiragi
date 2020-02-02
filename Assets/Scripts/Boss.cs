@@ -7,17 +7,28 @@ public class Boss : MonoBehaviour
 
     [SerializeField] private float angerIncreaseRatePerSecond;
     [SerializeField] private float angerDecreaseAmount;
+    [SerializeField] private ProgressBar progressBar;
 
-    [SerializeField] private float anger;
+    private float anger;
+
+    public float Anger
+    {
+        get { return anger; }
+        set
+        {
+            anger = value;
+            OnAngerUpdated();
+        }
+    }
 
     private void Start() =>
-        anger = 0;
+        Anger = 0;
 
     private void Update()
     {
-        anger += angerIncreaseRatePerSecond * Time.deltaTime;
+        Anger += angerIncreaseRatePerSecond * Time.deltaTime;
 
-        if (anger > maxAnger)
+        if (Anger > maxAnger)
         {
             OnBossIsAngry();
         }
@@ -26,11 +37,16 @@ public class Boss : MonoBehaviour
     public event Action BossIsAngry;
 
     public void OnCarRepaired() =>
-        anger = Mathf.Max(0f, anger - angerDecreaseAmount);
+        Anger = Mathf.Max(0f, Anger - angerDecreaseAmount);
 
     public void OnBossIsAngry()
     {
         Destroy(gameObject);
         BossIsAngry?.Invoke();
+    }
+
+    private void OnAngerUpdated()
+    {
+        progressBar.BarValue = anger;
     }
 }

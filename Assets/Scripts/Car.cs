@@ -7,8 +7,9 @@ public class Car : MonoBehaviour
     private const int maxHealth = 100;
 
     [SerializeField] private int healAmount;
+    [SerializeField] private ProgressBarCircle progressBar;
 
-    [SerializeField] private int health;
+    private int health;
 
     private Boss boss;
 
@@ -55,6 +56,7 @@ public class Car : MonoBehaviour
     private void OnHealthUpdated()
     {
         HealthUpdated?.Invoke();
+        progressBar.BarValue = Health;
 
         if (Health < maxHealth)
         {
