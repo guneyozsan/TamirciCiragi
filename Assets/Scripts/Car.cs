@@ -7,6 +7,7 @@ public class Car : MonoBehaviour
     private const int maxHealth = 100;
 
     [SerializeField] private int healAmount;
+
     [SerializeField] private int health;
 
     private Boss boss;
