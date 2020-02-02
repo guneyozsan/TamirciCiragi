@@ -11,16 +11,6 @@ public class Boss : MonoBehaviour
 
     private float anger;
 
-    public float Anger
-    {
-        get { return anger; }
-        set
-        {
-            anger = value;
-            OnAngerUpdated();
-        }
-    }
-
     private void Start() =>
         Anger = 0;
 
@@ -36,8 +26,18 @@ public class Boss : MonoBehaviour
 
     public event Action BossIsAngry;
 
+    public float Anger
+    {
+        get { return anger; }
+        set
+        {
+            anger = Mathf.Max(0f, value);
+            OnAngerUpdated();
+        }
+    }
+
     public void OnCarRepaired() =>
-        Anger = Mathf.Max(0f, Anger - angerDecreaseAmount);
+        Anger = Anger - angerDecreaseAmount;
 
     public void OnBossIsAngry()
     {
@@ -45,8 +45,6 @@ public class Boss : MonoBehaviour
         BossIsAngry?.Invoke();
     }
 
-    private void OnAngerUpdated()
-    {
+    private void OnAngerUpdated() =>
         progressBar.BarValue = anger;
-    }
 }
