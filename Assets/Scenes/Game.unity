@@ -518,8 +518,8 @@ MonoBehaviour:
   maxSpawnTime: 5
   minAreaX: -4
   maxAreaX: 4
-  minAreaY: -3
-  maxAreaY: -3
+  minAreaY: -8
+  maxAreaY: -8
   minRotation: -16
   maxRotation: 16
 --- !u!1001 &2044238762

@@ -13,7 +13,7 @@ public class Girl : MonoBehaviour
     private void Start() =>
         Love = 0;
 
-    private void FixedUpdate()
+    private void Update()
     {
         // Also update increase amount accordingly.
         float deltaLoveRatio = loveIncreaseAmount / (maxLove - Love);

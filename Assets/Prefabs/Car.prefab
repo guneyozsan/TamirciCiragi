@@ -13,6 +13,7 @@ GameObject:
   - component: {fileID: 989007487213202538}
   - component: {fileID: 989007487213202537}
   - component: {fileID: 989007487213202550}
+  - component: {fileID: 6928743032662452592}
   m_Layer: 0
   m_Name: Car
   m_TagString: Untagged
@@ -27,14 +28,14 @@ Transform:
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 989007487213202541}
-  m_LocalRotation: {x: -0, y: -0, z: 0.43379655, w: 0.9010109}
+  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
   m_LocalPosition: {x: 3.17, y: 0.35586283, z: 0}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children:
   - {fileID: 6514720562816395413}
   m_Father: {fileID: 0}
   m_RootOrder: 0
-  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 51.417004}
+  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!212 &989007487213202539
 SpriteRenderer:
   m_ObjectHideFlags: 0
@@ -133,19 +134,32 @@ Rigidbody2D:
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 989007487213202541}
-  m_BodyType: 2
+  m_BodyType: 0
   m_Simulated: 1
   m_UseFullKinematicContacts: 0
   m_UseAutoMass: 0
-  m_Mass: 1
-  m_LinearDrag: 0
-  m_AngularDrag: 0
+  m_Mass: 1000
+  m_LinearDrag: 0.5
+  m_AngularDrag: 5
   m_GravityScale: 0
   m_Material: {fileID: 0}
   m_Interpolate: 0
   m_SleepingMode: 1
   m_CollisionDetection: 0
   m_Constraints: 0
+--- !u!114 &6928743032662452592
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 989007487213202541}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 66d9326866d9a7840af19cbf8de9bd68, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  initialVelocity: 5
 --- !u!1 &5887093642470831805
 GameObject:
   m_ObjectHideFlags: 0
@@ -172,7 +186,7 @@ RectTransform:
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 5887093642470831805}
-  m_LocalRotation: {x: 0, y: -0, z: -0.43379655, w: 0.9010109}
+  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
   m_LocalPosition: {x: 0, y: 0, z: 0}
   m_LocalScale: {x: 0.01, y: 0.01, z: 0.01}
   m_Children:
