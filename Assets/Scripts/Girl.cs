@@ -5,18 +5,30 @@ public class Girl : MonoBehaviour
     private const int maxLove = 100;
 
     [SerializeField] private float deltaLove;
+    [SerializeField] private ProgressBar progressBar;
 
-    [SerializeField] private float love;
+    private float love;
 
-    private void Start()
+    public float Love
     {
-        love = 0;
+        get { return love; }
+        set
+        {
+            love = value;
+            OnLoveChanged();
+        }
     }
+
+    private void Start() =>
+        Love = 0;
 
     private void OnMouseUp()
     {
-        float deltaLoveRatio = deltaLove / (maxLove - love);
-        love += deltaLove;
-        deltaLove = deltaLoveRatio * (maxLove - love);
+        float deltaLoveRatio = deltaLove / (maxLove - Love);
+        Love += deltaLove;
+        deltaLove = deltaLoveRatio * (maxLove - Love);
     }
+
+    private void OnLoveChanged() =>
+        progressBar.BarValue = Love;
 }
