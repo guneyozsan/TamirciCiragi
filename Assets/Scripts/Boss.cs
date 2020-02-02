@@ -24,7 +24,8 @@ public class Boss : MonoBehaviour
         }
     }
 
-    public event Action BossIsAngry;
+    public event Action IsAngry;
+    public event Action<float> AngerUpdated;
 
     public float Anger
     {
@@ -39,11 +40,8 @@ public class Boss : MonoBehaviour
     public void OnCarRepaired() =>
         Anger = Anger - angerDecreaseAmount;
 
-    public void OnBossIsAngry()
-    {
-        Destroy(gameObject);
-        BossIsAngry?.Invoke();
-    }
+    public void OnBossIsAngry() =>
+        IsAngry?.Invoke();
 
     private void OnAngerUpdated() =>
         progressBar.BarValue = anger;
