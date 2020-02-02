@@ -7,7 +7,6 @@ public class PlayerControls : MonoBehaviour
     [SerializeField] private Rigidbody2D playerRigidbody;
     [SerializeField] private Vector2 targetPosition;
     [SerializeField] private Vector2 direction;
-    public float k;
 
     private void Awake()
     {
@@ -35,5 +34,10 @@ public class PlayerControls : MonoBehaviour
         {
             playerRigidbody.velocity = Vector2.zero;
         }
+    }
+
+    private void OnCollisionEnter2D(Collision2D collision)
+    {
+        playerRigidbody.velocity = Vector2.zero;
     }
 }
