@@ -13,8 +13,13 @@ public class Girl : MonoBehaviour
     private void Start() =>
         Love = 0;
 
-    private void FixedUpdate() =>
+    private void FixedUpdate()
+    {
+        // Also update increase amount accordingly.
+        float deltaLoveRatio = loveIncreaseAmount / (maxLove - Love);
         Love -= loveDecreaseRate * Time.deltaTime;
+        loveIncreaseAmount = deltaLoveRatio * (maxLove - Love);
+    }
 
     private void OnMouseUp()
     {
