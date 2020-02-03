@@ -16,6 +16,6 @@ public class LevelReloader : MonoBehaviour
     private IEnumerator LoadLevel()
     {
         yield return new WaitForSeconds(3);
-        UnityEngine.SceneManagement.SceneManager.LoadScene(0);
+        UnityEngine.SceneManagement.SceneManager.LoadScene(1);
     }
 }
